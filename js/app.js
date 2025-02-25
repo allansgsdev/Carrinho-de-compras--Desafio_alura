@@ -23,9 +23,6 @@ let valorDoProduto;
 let apenasValor;
 let somaValores = 0;
 
-let arrayQuantidades = [];
-let arrayProdutos = [];
-let arrayValores = [];
 let arrayCarrinho = [];
 
 // DECLARAÇÃO DE FUNÇÕES
@@ -37,9 +34,6 @@ function limpar() {
     limparCampo(listaDeProdutos);
     somaValores = 0;
     campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$00,00</span>`;
-    arrayQuantidades = [];
-    arrayProdutos = [];
-    arrayValores = [];
     arrayCarrinho = [];
 }
 
@@ -60,9 +54,6 @@ function adicionar() {
 
             var valorTotal = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(somaValores);
 
-            arrayQuantidades.push(quantidade);
-            arrayProdutos.push(nomeDoProduto);
-            arrayValores.push(valor);
             arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
 
             listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
