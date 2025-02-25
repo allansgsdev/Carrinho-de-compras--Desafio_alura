@@ -54,7 +54,7 @@ function adicionar() {
     apenasValor = valorDoProduto.substring(valorDoProduto.indexOf('R$') + 2);
 
     if (!isNaN(quantidade) && quantidade > 0) {
-        if (confirm(`Você realmente deseja adicionar este item ao seu carrinho?\n${quantidade}x ${produto}`)) {
+        if (confirm(`Você realmente deseja adicionar este item ao seu carrinho?\n\n${quantidade}x ${produto}`)) {
             var valor = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(apenasValor);
             somaValores += parseFloat(quantidade * apenasValor);
 
@@ -68,7 +68,7 @@ function adicionar() {
             listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
             campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">${valorTotal}</span>`;
 
-            alert(`${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
+            alert(`\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
         }
     } else {
         alert('Insira uma quantidade válida');
