@@ -53,20 +53,10 @@ function adicionar() {
     valorDoProduto = produto.substring(produto.indexOf('-') + 2);
     apenasValor = valorDoProduto.substring(valorDoProduto.indexOf('R$') + 2);
 
-    console.log(produto);
-    console.log(indexProduto);
-    console.log(textProduto);
-    console.log(quantidade);
-    console.log(nomeDoProduto);
-    console.log(valorDoProduto);
-
     if (!isNaN(quantidade) && quantidade > 0) {
         if (confirm(`Você realmente deseja adicionar este item ao seu carrinho?\n${quantidade}x ${produto}`)) {
             var valor = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(apenasValor);
-            console.log(valor);
-
             somaValores += parseFloat(quantidade * apenasValor);
-            console.log(somaValores);
 
             var valorTotal = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(somaValores);
 
@@ -75,13 +65,8 @@ function adicionar() {
             arrayValores.push(valor);
             arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
 
-            //for (var i = 0; i < arrayProdutos.length; i++) {
             listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
             campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">${valorTotal}</span>`;
-            //}
-            console.log(arrayQuantidades);
-            console.log(arrayProdutos);
-            console.log(arrayValores);
 
             alert(`${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
         }
