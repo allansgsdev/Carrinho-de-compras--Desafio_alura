@@ -64,6 +64,7 @@ function adicionar() {
     } else {
         alert('Insira uma quantidade válida');
     }
+    campoQuantidade.value = '';
 }
 
 // PROGRAMA PRINCIPAL
