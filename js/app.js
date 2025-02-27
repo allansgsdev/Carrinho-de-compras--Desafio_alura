@@ -10,7 +10,7 @@ let campoProduto = document.getElementById('produto');
 let botaoAdicionar = document.querySelector('.botao-adicionar');
 let botaoLimpar = document.querySelector('.botao-limpar');
 let listaDeProdutos = document.querySelector('.carrinho__produtos__produto');
-let campoValorTotal = document.querySelector('.carrinho__total');
+let campoValorTotal = document.getElementById('valor-total');
 let campoQuantidade = document.getElementById('quantidade');
 
 let produto;
@@ -34,7 +34,7 @@ function limpar() {
     limparCampo(listaDeProdutos);
     somaValores = 0;
     arrayCarrinho = [];
-    campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$00,00</span>`;
+    campoValorTotal.innerHTML = `R$00,00`;
 }
 
 function adicionar() {
@@ -58,7 +58,7 @@ function adicionar() {
             arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
 
             listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
-            campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">${valorTotal}</span>`;
+            campoValorTotal.innerHTML = valorTotal;
 
             alert(`\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
         }
