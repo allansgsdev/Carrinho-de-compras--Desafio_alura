@@ -43,8 +43,9 @@ function adicionar() {
     textProduto = campoProduto.options[indexProduto].text;
     quantidade = parseInt(campoQuantidade.value);
 
-    nomeDoProduto = produto.substring(produto.indexOf('-') + 0, -10);
-    valorDoProduto = produto.substring(produto.indexOf('-') + 2);
+    nomeDoProduto = produto.split(' - ')[0];
+    valorDoProduto = produto.split(' - ')[1];
+
     apenasValor = valorDoProduto.substring(valorDoProduto.indexOf('R$') + 2);
 
     if (!isNaN(quantidade) && quantidade > 0) {
