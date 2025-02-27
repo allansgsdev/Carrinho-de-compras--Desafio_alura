@@ -24,6 +24,7 @@ let apenasValor;
 let somaValores = 0;
 
 let arrayCarrinho = [];
+let arrayCarrinhoSimplificado = [];
 
 // DECLARAÇÃO DE FUNÇÕES
 function limparCampo(campo) {
@@ -31,10 +32,16 @@ function limparCampo(campo) {
 }
 
 function limpar() {
-    limparCampo(listaDeProdutos);
-    somaValores = 0;
-    arrayCarrinho = [];
-    campoValorTotal.innerHTML = `R$00,00`;
+    if (confirm(`Você realmente deseja limpar o carrinho?\n\n${arrayCarrinhoSimplificado.join('\n')}`)) {
+        if (confirm('Tem certeza?')) {
+            limparCampo(listaDeProdutos);
+            somaValores = 0;
+            arrayCarrinho = [];
+            campoValorTotal.innerHTML = `R$00,00`;
+            alert('Carrinho limpo.');
+        }
+    }
+    return
 }
 
 function adicionar() {
@@ -60,11 +67,12 @@ function adicionar() {
                 var valorTotal = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(somaValores);
 
                 arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
+                arrayCarrinhoSimplificado.push(`${quantidade}x ${nomeDoProduto} - ${valor}`);
 
                 listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
                 campoValorTotal.innerHTML = valorTotal;
 
-                alert(`\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
+                alert(`Item: \n\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
             }
         } else {
             alert('Insira uma quantidade válida');
