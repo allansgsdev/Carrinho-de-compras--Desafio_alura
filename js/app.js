@@ -1,9 +1,10 @@
 // *PÁGINA DE DESAFIOS*
-//
+
 // Desafio: Carrinho de compras
 // Autor: Allan Gomes
-// Curso: Lógica de programação: praticando com desafios
+// Curso: Lógica de programação - Praticando com desafios
 // Instituição: Alura
+
 
 // DECLARAÇÃO E ATRIBUÇÃO DE VARIÁVEIS
 let campoProduto = document.getElementById('produto');
