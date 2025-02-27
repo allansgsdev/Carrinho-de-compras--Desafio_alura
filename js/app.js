@@ -33,8 +33,8 @@ function limparCampo(campo) {
 function limpar() {
     limparCampo(listaDeProdutos);
     somaValores = 0;
-    campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$00,00</span>`;
     arrayCarrinho = [];
+    campoValorTotal.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$00,00</span>`;
 }
 
 function adicionar() {
