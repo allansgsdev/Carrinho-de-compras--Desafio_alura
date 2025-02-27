@@ -48,22 +48,28 @@ function adicionar() {
 
     apenasValor = valorDoProduto.substring(valorDoProduto.indexOf('R$') + 2);
 
-    if (!isNaN(quantidade) && quantidade > 0) {
-        if (confirm(`Você realmente deseja adicionar este item ao seu carrinho?\n\n${quantidade}x ${produto}`)) {
-            var valor = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(apenasValor);
-            somaValores += parseFloat(quantidade * apenasValor);
-
-            var valorTotal = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(somaValores);
-
-            arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
-
-            listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
-            campoValorTotal.innerHTML = valorTotal;
-
-            alert(`\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
-        }
+    if (!produto || produto.trim() === '') {
+        alert('Insira um produto válido');
+        return
     } else {
-        alert('Insira uma quantidade válida');
+        if (!isNaN(quantidade) && quantidade > 0) {
+            if (confirm(`Você realmente deseja adicionar este item ao seu carrinho?\n\n${quantidade}x ${produto}`)) {
+                var valor = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(apenasValor);
+                somaValores += parseFloat(quantidade * apenasValor);
+
+                var valorTotal = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(somaValores);
+
+                arrayCarrinho.push(`<span class="texto-azul">${quantidade}x</span> ${nomeDoProduto} <span class="texto-azul">${valor}</span>`);
+
+                listaDeProdutos.innerHTML = arrayCarrinho.join('<br>');
+                campoValorTotal.innerHTML = valorTotal;
+
+                alert(`\n${quantidade}x ${produto}\n\nAdicionado com sucesso.`);
+            }
+        } else {
+            alert('Insira uma quantidade válida');
+            return
+        }
     }
     campoQuantidade.value = '';
 }
