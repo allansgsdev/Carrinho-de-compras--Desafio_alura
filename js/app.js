@@ -13,7 +13,7 @@ let botaoLimpar = document.querySelector('.botao-limpar');
 let listaDeProdutos = document.querySelector('.carrinho__produtos__produto');
 let campoValorTotal = document.getElementById('valor-total');
 let campoQuantidade = document.getElementById('quantidade');
-let form = document.querySelector('form');
+let formulario = document.querySelector('form');
 
 let produto;
 let indexProduto;
@@ -94,6 +94,6 @@ input.addEventListener("keyup", ({ key }) => {
     }
 })
 
-form.onsubmit = (event) => {
+formulario.onsubmit = (event) => {
     event.preventDefault();
 }
